@@ -40,8 +40,8 @@ function Cards(props) {
 
     users.length===2 && setStartGame(true)
 
-
   }, [users])
+  
 
   let usersList = [];
   const dispatch = useDispatch();
@@ -59,13 +59,16 @@ function Cards(props) {
   };
 
   const handleAddButton = () => {
-    let user = { name: cardOwnerName, color: cardColor, money: "15000" };
+
+    let uniqueId= Date.now()
+    let user = { id: uniqueId, name: cardOwnerName, color: cardColor, money: "15000" }
     let tempList=[...users]
     tempList.push(user)
     setUsers(tempList)
 
     console.log(users)
     setOpen(false);
+
   };
 
   const handleInputChange = (e) => {
